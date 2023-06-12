@@ -14,7 +14,7 @@
 <script setup>
 import { ref, onMounted  } from 'vue'
 import { createPinia } from 'pinia'
-import {useProfileStore} from "../stores/counter";
+import {useProfileStore} from "../stores/profile";
 
 const imageSrc = ref('')
 const name = ref('')
