@@ -1,14 +1,43 @@
 <template>
-  <main>
-    <h1>Hello world</h1>
-    <h3>{{counterStore.count}}</h3>
-    <h4>hello h4</h4>
-    <button @click="counterStore.increment">+1</button>
-  </main>
+  <div>
+    <img v-if="imageSrc" :src="imageSrc">
+    <div>
+      {{name}}
+    </div>
+    <div>
+      {{patronymic}}
+    </div>
+    <div>
+      {{surname}}
+    </div>
+  </div>
 </template>
 
 <script setup>
-import {useCounterStore} from "../stores/counter";
 
-const counterStore = useCounterStore()
+import { onMounted, ref } from "vue"
+
+const imageSrc = ref('')
+const name = ref('')
+const patronymic = ref('')
+const surname = ref('')
+
+onMounted(() => {
+   const data = localStorage.getItem('profile')
+   if (!data) return
+   const profile = JSON.parse(data)
+
+   imageSrc.value = profile.imageSrc
+   name.value = profile.name
+   patronymic.value = profile.patronymic
+   surname.value = profile.surname
+})
+
 </script>
+
+<style scoped>
+ img{
+  width: 100px; 
+  height: 100px;
+ }
+</style>
