@@ -25,7 +25,7 @@ const onFileSelected = (event) => {
   const reader = new FileReader()
   reader.readAsDataURL(file)
 
-  reader.onload = function () {
+  reader.onload = () => {
     imageSrc.value = reader.result
   }
 }
