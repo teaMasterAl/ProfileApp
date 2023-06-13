@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :src="imageSrc">
+    <img v-if="imageSrc" :src="imageSrc">
     <div>
       {{name}}
     </div>
@@ -15,7 +15,7 @@
 
 <script setup>
 
-import { computed, onMounted, ref } from "vue"
+import { onMounted, ref } from "vue"
 
 const imageSrc = ref('')
 const name = ref('')
@@ -23,9 +23,10 @@ const patronymic = ref('')
 const surname = ref('')
 
 onMounted(() => {
-   const data = localStorage.getItem('profiles')
+   const data = localStorage.getItem('profile')
+   if (!data) return
    const profile = JSON.parse(data)
-   
+
    imageSrc.value = profile.imageSrc
    name.value = profile.name
    patronymic.value = profile.patronymic
