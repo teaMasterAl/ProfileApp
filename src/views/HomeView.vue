@@ -1,43 +1,28 @@
 <template>
   <div>
-    <img v-if="imageSrc" :src="imageSrc">
+    <img v-if="profileStore.imageSrc" :src="profileStore.imageSrc" />
     <div>
-      {{name}}
+      {{ profileStore.name }}
     </div>
     <div>
-      {{patronymic}}
+      {{ profileStore.patronymic }}
     </div>
     <div>
-      {{surname}}
+      {{ profileStore.surname }}
     </div>
   </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import { useProfileStore } from '@/stores/profile'
 
-import { onMounted, ref } from "vue"
-
-const imageSrc = ref('')
-const name = ref('')
-const patronymic = ref('')
-const surname = ref('')
-
-onMounted(() => {
-   const data = localStorage.getItem('profile')
-   if (!data) return
-   const profile = JSON.parse(data)
-
-   imageSrc.value = profile.imageSrc
-   name.value = profile.name
-   patronymic.value = profile.patronymic
-   surname.value = profile.surname
-})
-
+const profileStore = useProfileStore()
 </script>
 
 <style scoped>
- img{
-  width: 100px; 
+img {
+  width: 100px;
   height: 100px;
- }
+}
 </style>
