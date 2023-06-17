@@ -10,7 +10,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useProfileStore } from "../stores/profile";
+import { useProfileStore } from "@/stores/profile";
 
 const imageSrc = ref('')
 const name = ref('')
@@ -21,7 +21,7 @@ const profileStore = useProfileStore()
 
 const onFileSelected = (event) => {
   const file = event.target.files[0]
-  
+
   const reader = new FileReader()
   reader.readAsDataURL(file)
 

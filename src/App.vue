@@ -1,15 +1,22 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-</script>
-
 <template>
   <nav>
     <RouterLink to="/">Home</RouterLink>
     <RouterLink to="/profile">Profile !!!</RouterLink>
   </nav>
-
   <RouterView />
 </template>
+
+<script setup>
+import { RouterLink, RouterView } from 'vue-router'
+import { onMounted } from "vue"
+import { useProfileStore } from "./stores/profile"
+
+const profileStore = useProfileStore()
+
+onMounted(()=>{
+  profileStore.initProfile()
+})
+</script>
 
 <style scoped>
 header {
