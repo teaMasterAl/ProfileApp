@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import {ref} from "vue";
+import { ref } from "vue";
 
 export const useProfileStore = defineStore('useProfileStore', () => {
 
@@ -19,9 +19,14 @@ export const useProfileStore = defineStore('useProfileStore', () => {
     surname.value = profile.surname
   }
 
-  function saveProfile( dataProfile ) {
+  function saveProfile(dataProfile) {
     localStorage.setItem('profile', JSON.stringify(dataProfile))
     alert('Профиль создан')
+
+    imageSrc.value = dataProfile.imageSrc
+    name.value = dataProfile.name
+    patronymic.value = dataProfile.patronymic
+    surname.value = dataProfile.surname
   }
 
   return { imageSrc, name, patronymic, surname, initProfile, saveProfile }

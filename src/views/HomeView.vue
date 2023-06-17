@@ -1,29 +1,28 @@
 <template>
   <div>
-    <img v-if="profileStore.imageSrc" :src="profileStore.imageSrc">
+    <img v-if="profileStore.imageSrc" :src="profileStore.imageSrc" />
     <div>
-      {{profileStore.name}}
+      {{ profileStore.name }}
     </div>
     <div>
-      {{profileStore.patronymic}}
+      {{ profileStore.patronymic }}
     </div>
     <div>
-      {{profileStore.surname}}
+      {{ profileStore.surname }}
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue"
-import { useProfileStore } from "@/stores/profile"
+import { ref } from 'vue'
+import { useProfileStore } from '@/stores/profile'
 
 const profileStore = useProfileStore()
-
 </script>
 
 <style scoped>
- img{
+img {
   width: 100px;
   height: 100px;
- }
+}
 </style>
