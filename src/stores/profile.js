@@ -8,25 +8,26 @@ export const useProfileStore = defineStore('useProfileStore', () => {
   const patronymic = ref('')
   const surname = ref('')
 
-  const initProfile = () => {
-    const data = localStorage.getItem('profile')
-    if (!data) return
-    const profile = JSON.parse(data)
-
+  const setProfile = (profile) => {
     imageSrc.value = profile.imageSrc
     name.value = profile.name
     patronymic.value = profile.patronymic
     surname.value = profile.surname
   }
 
-  function saveProfile(dataProfile) {
+  const initProfile = () => {
+    const data = localStorage.getItem('profile')
+    if (!data) return
+    const profile = JSON.parse(data)
+
+    setProfile(profile)
+  }
+
+  const saveProfile = (profile) => {
     localStorage.setItem('profile', JSON.stringify(dataProfile))
     alert('Профиль создан')
 
-    imageSrc.value = dataProfile.imageSrc
-    name.value = dataProfile.name
-    patronymic.value = dataProfile.patronymic
-    surname.value = dataProfile.surname
+    setProfile(profile)
   }
 
   return { imageSrc, name, patronymic, surname, initProfile, saveProfile }
