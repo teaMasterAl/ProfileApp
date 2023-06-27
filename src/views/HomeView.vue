@@ -1,27 +1,36 @@
 <template>
-  <div>
-    <img v-if="profileStore.imageSrc" :src="profileStore.imageSrc" />
+  <div class="profile">
+    <img
+     v-if="profileStore.imageSrc" 
+     class="profile__image"
+     :src="profileStore.imageSrc" />
     <div>
-      {{ profileStore.name }}
+      Имя: {{ profileStore.name }}
     </div>
     <div>
-      {{ profileStore.patronymic }}
+      Отчесвто: {{ profileStore.patronymic }}
     </div>
     <div>
-      {{ profileStore.surname }}
+      Фамилия: {{ profileStore.surname }}
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import { useProfileStore } from '@/stores/profile'
 
 const profileStore = useProfileStore()
 </script>
 
 <style scoped>
-img {
+.profile{
+  background-color: #eee;
+  padding: 25px 31px;
+  border-radius: 10px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.profile__image {
   width: 100px;
   height: 100px;
 }
