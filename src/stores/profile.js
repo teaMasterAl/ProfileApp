@@ -23,7 +23,7 @@ export const useProfileStore = defineStore('useProfileStore', () => {
   }
 
   const saveProfile = (profile) => {
-    localStorage.setItem('profile', JSON.stringify(dataProfile))
+    localStorage.setItem('profile', JSON.stringify(profile))
     alert('Профиль создан')
 
     setProfile(profile)
