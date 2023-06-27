@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { ref } from "vue";
 
 export const useProfileStore = defineStore('useProfileStore', () => {
+
   const imageSrc = ref('')
   const name = ref('')
   const patronymic = ref('')
@@ -30,4 +31,5 @@ export const useProfileStore = defineStore('useProfileStore', () => {
   }
 
   return { imageSrc, name, patronymic, surname, initProfile, saveProfile }
+
 })
