@@ -40,7 +40,8 @@ const sendData = () => {
   max-width: 300px;
   margin: 0 auto;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px 1px #c4c4c4;
+  border: 1px solid var(--color-border);
   padding: 16px;
+  background-color: var(--color-background-mute);
 }
 </style>

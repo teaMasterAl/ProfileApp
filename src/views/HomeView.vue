@@ -3,12 +3,14 @@
     <img
      v-if="profileStore.imageSrc" 
      class="profile__image"
-     :src="profileStore.imageSrc" />
+     :src="profileStore.imageSrc"
+     alt="avatar"
+    />
     <div>
       Имя: {{ profileStore.name }}
     </div>
     <div>
-      Отчесвто: {{ profileStore.patronymic }}
+      Отчество: {{ profileStore.patronymic }}
     </div>
     <div>
       Фамилия: {{ profileStore.surname }}
@@ -24,7 +26,8 @@ const profileStore = useProfileStore()
 
 <style scoped>
 .profile{
-  background-color: #eee;
+  background-color: var(--color-background-mute);
+  border: 1px solid var(--color-border);
   padding: 25px 31px;
   border-radius: 10px;
   max-width: 300px;
